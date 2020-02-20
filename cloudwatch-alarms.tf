@@ -12,7 +12,7 @@ resource "aws_cloudwatch_metric_alarm" "high_memory" {
   ok_actions                = var.alarm_sns_topics
 
   dimensions = {
-    DBInstanceIdentifier = "${var.identifier}"
+    DBInstanceIdentifier = var.identifier
   }
 }
 
@@ -30,7 +30,7 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   ok_actions                = var.alarm_sns_topics
 
   dimensions = {
-    DBInstanceIdentifier = "${var.identifier}"
+    DBInstanceIdentifier = var.identifier
   }
 }
 
@@ -49,12 +49,12 @@ resource "aws_cloudwatch_metric_alarm" "low_disk" {
   ok_actions                = var.alarm_sns_topics
 
   dimensions = {
-    DBInstanceIdentifier = "${var.identifier}"
+    DBInstanceIdentifier = var.identifier
   }
 }
 
 resource "aws_cloudwatch_metric_alarm" "low_cpu_credits" {
-  count = "${substr(data.aws_db_instance.current.db_instance_class,0,4) == "db.t" ? 1 : 0}"
+  count = substr(data.aws_db_instance.current.db_instance_class,0,4) == "db.t" ? 1 : 0
 
   alarm_name                = "${data.aws_iam_account_alias.current.account_alias}-db-${var.identifier}-low-cpu-credits"
   comparison_operator       = "LessThanOrEqualToThreshold"
@@ -69,7 +69,7 @@ resource "aws_cloudwatch_metric_alarm" "low_cpu_credits" {
   ok_actions                = var.alarm_sns_topics
 
   dimensions = {
-    DBInstanceIdentifier = "${var.identifier}"
+    DBInstanceIdentifier = var.identifier
   }
 }
 
@@ -95,7 +95,7 @@ resource "aws_cloudwatch_metric_alarm" "low_cpu_credits" {
 #       stat        = "Average"
 
 #       dimensions = {
-#         DBInstanceIdentifier = "${var.identifier}"
+#         DBInstanceIdentifier = var.identifier
 #       }
 #     }
 #   }
