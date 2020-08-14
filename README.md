@@ -3,7 +3,7 @@
 [![Lint Status](https://github.com/DNXLabs/terraform-aws-db-monitoring/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-db-monitoring/actions)
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-db-monitoring)](https://github.com/DNXLabs/terraform-aws-db-monitoring/blob/master/LICENSE)
 
-This terraform module is responsible for monitoring Relational Database Servic(RDS) database.
+This terraform module is responsible for monitoring a Relational Database Service(RDS) database.
 
 The following resources will be created:
  - Cloudwatch alarms
