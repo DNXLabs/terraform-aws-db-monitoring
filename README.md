@@ -3,6 +3,16 @@
 [![Lint Status](https://github.com/DNXLabs/terraform-aws-db-monitoring/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-db-monitoring/actions)
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-db-monitoring)](https://github.com/DNXLabs/terraform-aws-db-monitoring/blob/master/LICENSE)
 
+This terraform module is responsible for monitoring Relational Database Servic(RDS) database.
+
+The following resources will be created:
+ - Cloudwatch alarms
+   - To monitor whether the Database instance memory is above the threshold
+   - To monitor whether the Database instance CPU is above the threshold
+
+In addition you have the option to :
+ - Create or not a Simple Notification Service topic (SNS) - This SNS create alerts on RDS instances metrics.
+
 <!--- BEGIN_TF_DOCS --->
 
 ## Requirements
