@@ -31,6 +31,7 @@ In addition you have the option to :
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| account\_name | Name of the AWS account to identify the alarms | `string` | `""` | no |
 | alarm\_sns\_topics | Alarm topics to create and alert on RDS instance metrics | `list` | `[]` | no |
 | identifier | RDS database instance identifier | `string` | `""` | no |
 | instance\_class | RDS database instance class | `any` | n/a | yes |
