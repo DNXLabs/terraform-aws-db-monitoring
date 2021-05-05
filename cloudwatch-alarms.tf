@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_metric_alarm" "high_memory" {
-  alarm_name          = "${data.aws_iam_account_alias.current.account_alias}-db-${var.identifier}-high-memory"
+  alarm_name          = "${var.account_name}-db-${var.identifier}-high-memory"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "3"
   metric_name         = "MemoryUtilization"
@@ -17,7 +17,7 @@ resource "aws_cloudwatch_metric_alarm" "high_memory" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "high_cpu" {
-  alarm_name          = "${data.aws_iam_account_alias.current.account_alias}-db-${var.identifier}-high-cpu"
+  alarm_name          = "${var.account_name}-db-${var.identifier}-high-cpu"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "3"
   metric_name         = "CPUUtilization"
@@ -35,7 +35,7 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "low_disk" {
-  alarm_name          = "${data.aws_iam_account_alias.current.account_alias}-db-${var.identifier}-low-disk"
+  alarm_name          = "${var.account_name}-db-${var.identifier}-low-disk"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = "3"
   metric_name         = "FreeStorageSpace"
@@ -56,7 +56,7 @@ resource "aws_cloudwatch_metric_alarm" "low_disk" {
 resource "aws_cloudwatch_metric_alarm" "low_cpu_credits" {
   count = substr(var.instance_class, 0, 4) == "db.t" ? 1 : 0
 
-  alarm_name          = "${data.aws_iam_account_alias.current.account_alias}-db-${var.identifier}-low-cpu-credits"
+  alarm_name          = "${var.account_name}-db-${var.identifier}-low-cpu-credits"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = "3"
   metric_name         = "CPUCreditBalance"
@@ -74,7 +74,7 @@ resource "aws_cloudwatch_metric_alarm" "low_cpu_credits" {
 }
 
 # resource "aws_cloudwatch_metric_alarm" "read_latency" {
-#   alarm_name                = "${data.aws_iam_account_alias.current.account_alias}-db-${var.identifier}-read-latency"
+#   alarm_name                = "${var.account_name}-db-${var.identifier}-read-latency"
 #   comparison_operator       = "LessThanLowerOrGreaterThanUpperThreshold"
 #   # evaluation_periods        = "3"
 #   threshold                 = "0"
