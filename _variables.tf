@@ -13,6 +13,6 @@ variable "alarm_sns_topics" {
 }
 
 variable "account_name" {
-  default = ""
+  default     = ""
   description = "Name of the AWS account to identify the alarms"
 }
