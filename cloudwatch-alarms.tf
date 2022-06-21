@@ -1,12 +1,12 @@
-resource "aws_cloudwatch_metric_alarm" "high_memory" {
-  alarm_name          = "${var.account_name}-db-${var.identifier}-high-memory"
-  comparison_operator = "GreaterThanOrEqualToThreshold"
+resource "aws_cloudwatch_metric_alarm" "low_memory" {
+  alarm_name          = "${var.account_name}-db-${var.identifier}-low-memory"
+  comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = "3"
-  metric_name         = "MemoryUtilization"
+  metric_name         = "FreeableMemory"
   namespace           = "AWS/RDS"
   period              = "600"
   statistic           = "Maximum"
-  threshold           = "80"
+  threshold           = "100"
   alarm_description   = "Database instance memory above threshold"
   alarm_actions       = var.alarm_sns_topics
   ok_actions          = var.alarm_sns_topics
