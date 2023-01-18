@@ -33,6 +33,7 @@ In addition you have the option to :
 |------|-------------|------|---------|:--------:|
 | account\_name | Name of the AWS account to identify the alarms | `string` | `""` | no |
 | alarm\_sns\_topics | Alarm topics to create and alert on RDS instance metrics | `list` | `[]` | no |
+| event\_categories | A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html | `any` | `null` | no |
 | identifier | RDS database instance identifier | `string` | `""` | no |
 | instance\_class | RDS database instance class | `any` | n/a | yes |
 
