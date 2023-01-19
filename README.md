@@ -32,7 +32,7 @@ In addition you have the option to :
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | account\_name | Name of the AWS account to identify the alarms | `string` | `""` | no |
-| alarm\_sns\_topics | Alarm topics to create and alert on RDS instance metrics | `list` | `[]` | no |
+| alarm\_sns\_topics | Alarm topics to create and alert on RDS instance metrics | `string` | `""` | no |
 | event\_categories | A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html | `string` | `"availability,deletion,failover,failure,low storage,maintenance,notification,read replica,recovery,restoration"` | no |
 | identifier | RDS database instance identifier | `string` | `""` | no |
 | instance\_class | RDS database instance class | `any` | n/a | yes |
