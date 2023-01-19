@@ -18,6 +18,6 @@ variable "account_name" {
 }
 
 variable "event_categories" {
-  default     = null
+  default     = "availability,deletion,failover,failure,low storage,maintenance,notification,read replica,recovery,restoration"
   description = "A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html"
 }

@@ -6,6 +6,5 @@ resource "aws_db_event_subscription" "rds_events" {
   source_type = "db-instance"
   source_ids  = [var.identifier]
   
-  event_categories = var.event_categories == null ? split(",",
-    "availability,deletion,failover,failure,low storage,maintenance,notification,read replica,recovery,restoration") : split(",",var.event_categories)
+  event_categories = split(",",var.event_categories)
 }
