@@ -8,8 +8,8 @@ resource "aws_cloudwatch_metric_alarm" "low_memory" {
   statistic           = "Maximum"
   threshold           = "100"
   alarm_description   = "Database instance memory above threshold"
-  alarm_actions       = var.alarm_sns_topics
-  ok_actions          = var.alarm_sns_topics
+  alarm_actions       = [var.alarm_sns_topics]
+  ok_actions          = [var.alarm_sns_topics]
 
   dimensions = {
     DBInstanceIdentifier = var.identifier
@@ -26,8 +26,8 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   statistic           = "Maximum"
   threshold           = "80"
   alarm_description   = "Database instance CPU above threshold"
-  alarm_actions       = var.alarm_sns_topics
-  ok_actions          = var.alarm_sns_topics
+  alarm_actions       = [var.alarm_sns_topics]
+  ok_actions          = [var.alarm_sns_topics]
 
   dimensions = {
     DBInstanceIdentifier = var.identifier
@@ -45,8 +45,8 @@ resource "aws_cloudwatch_metric_alarm" "low_disk" {
   threshold           = "1000000000"
   unit                = "Bytes"
   alarm_description   = "Database instance disk space is low"
-  alarm_actions       = var.alarm_sns_topics
-  ok_actions          = var.alarm_sns_topics
+  alarm_actions       = [var.alarm_sns_topics]
+  ok_actions          = [var.alarm_sns_topics]
 
   dimensions = {
     DBInstanceIdentifier = var.identifier
@@ -65,8 +65,8 @@ resource "aws_cloudwatch_metric_alarm" "low_cpu_credits" {
   statistic           = "Maximum"
   threshold           = "100"
   alarm_description   = "Database instance CPU credit balance is low"
-  alarm_actions       = var.alarm_sns_topics
-  ok_actions          = var.alarm_sns_topics
+  alarm_actions       = [var.alarm_sns_topics]
+  ok_actions          = [var.alarm_sns_topics]
 
   dimensions = {
     DBInstanceIdentifier = var.identifier
