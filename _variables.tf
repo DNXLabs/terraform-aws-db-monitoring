@@ -8,7 +8,7 @@ variable "instance_class" {
 }
 
 variable "alarm_sns_topics" {
-  default     = []
+  default     = ""
   description = "Alarm topics to create and alert on RDS instance metrics"
 }
 
