@@ -1,5 +1,5 @@
 resource "aws_db_event_subscription" "rds_events" {
-  count     = length(var.identifier) > 0 ? 1 : 0
+  count     = length(var.identifier) > 0 && length(var.alarm_sns_topics) > 0 ? 1 : 0
   name      = "${var.account_name}-${var.identifier}-rds-event-sub"
   sns_topic = var.alarm_sns_topics
 
